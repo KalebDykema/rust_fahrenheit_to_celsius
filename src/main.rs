@@ -1,17 +1,19 @@
 use std::io;
 
 fn main() {
+    // Loop through in case there's an invalid input
     loop {
+        // Get the measurement, c or f
         let mut input = String::new();
         println!("Choose c or f to convert");
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line");
-    
         let measurement = input.trim();
+
+        // Get the temperature
         let mut input = String::new();
         println!("Input a temperature");
-    
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line");
@@ -20,6 +22,7 @@ fn main() {
             Err(_) => continue
         };
     
+        // Display the results, or start over if there's an invalid measurement
         if measurement == "f" {
             println!("{}F = {}C", temperature, convert_f_to_c(temperature));
         } else if measurement == "c" {
